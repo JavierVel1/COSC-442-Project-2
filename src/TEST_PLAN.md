@@ -37,3 +37,13 @@ Valid Case:I expect to be able to purchase A and B because it follows the specif
 Invalid case: I expect to not able to purchase Chip, Null, and C because of the if condition in the method and the specification of the method
 
 Related JUnit 5 test:assertEquals and assertThrows
+
+5. Method: getItem
+Valid case: A, B
+Invalid case: Chip, Null
+Oracle / Expected Result:
+Valid Case:I expect to be able to access item A and B because the specification of the method says that it should Gets the item occupying the slot with the given code
+Invalid case: I expect it to throw an VendingMachineException because its a specification of the method where if the code is invalid, it throws 
+VendingMachineException
+
+Related JUnit 5 test:assertEquals and assertThrows
