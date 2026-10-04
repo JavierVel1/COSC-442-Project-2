@@ -6,20 +6,15 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 public class VendingMachineTest {
 
-
-    @Test
-    void testGetSlotIndex(String code){
-        //Arrange
-        VendingMachine vend = new VendingMachine();
-
-        //Act and Assert
-        assertEquals();
-
-    }
-
     @Test
     void testAddItem() {
-
+        // Arrange
+        VendingMachine vend = new VendingMachine();
+        VendingMachineItem item = new VendingMachineItem("Chips", 4); 
+        //Act
+        vend.addItem(item, "A");
+        //assert
+        assertEquals("Chips", vend.getItem("A").getName());
     }
 
     @Test
