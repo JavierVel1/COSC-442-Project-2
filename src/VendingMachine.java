@@ -125,6 +125,9 @@ public class VendingMachine {
 	 */
 	protected VendingMachineItem getItem(String code) throws VendingMachineException {
 		int slotIndex = getSlotIndex(code);
+		if (itemArray[slotIndex] == null) {
+			throw new VendingMachineException(SLOT_MESSAGE + code + IS_EMPTY_MESSAGE);
+		}
 		return itemArray[slotIndex];
 	}
 
@@ -138,6 +141,7 @@ public class VendingMachine {
 	 * @throws VendingMachineException If the slot at the specified code is empty
 	 *                                 and if the code is invalid
 	 */
+	
 	public VendingMachineItem removeItem(String code) throws VendingMachineException {
 		int slotIndex = getSlotIndex(code);
 		VendingMachineItem item = itemArray[slotIndex];

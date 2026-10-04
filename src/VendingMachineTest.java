@@ -1,5 +1,6 @@
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.assertTrue;
 
@@ -104,7 +105,59 @@ public class VendingMachineTest {
 
 
     @Test
-    void testRemoveItem() {
+    void testRemoveItemValidCase() {
+        // Arrange
+        VendingMachine vend = new VendingMachine();
+        VendingMachineItem item = new VendingMachineItem("Chips", 4); 
+        VendingMachineItem item2 = new VendingMachineItem("Cookie", 3); 
+        VendingMachineItem item3 = new VendingMachineItem("Pizza", 11); 
+        //Act
+        vend.addItem(item, "A");
+        vend.addItem(item2, "B");
+        vend.addItem(item3, "C");
+        vend.removeItem("A");
+        vend.removeItem("B");
+        vend.removeItem("C");
+        //Assert
+        assertNull(vend.getItem("A"));
+        assertNull(vend.getItem("B"));
+        assertNull(vend.getItem("C"));
 
+    }
+    @Test
+     void testRemoveItemInvalidCase() {
+        // Arrange
+        VendingMachine vend = new VendingMachine();
+        //Act and Assert
+        assertThrows(VendingMachineException.class, () ->  vend.removeItem("A"));
+
+    }
+
+    @Test
+    void testGetItemValidcase(){
+        // Arrange
+        VendingMachine vend = new VendingMachine();
+        VendingMachineItem item = new VendingMachineItem("Chips", 4); 
+        VendingMachineItem item2 = new VendingMachineItem("Cookie", 3); 
+        //Act
+        vend.addItem(item, "A");
+        vend.addItem(item2, "B");
+        //assert
+        assertEquals("Chips", vend.getItem("A").getName());
+        assertEquals(4, vend.getItem("A").getPrice(), 0.0001); 
+        assertEquals("Cookie", vend.getItem("B").getName()); 
+        assertEquals(3, vend.getItem("B").getPrice(), 0.0001); 
+    }
+
+    @Test
+    void testGetItemInvalidcase(){
+        // Arrange
+        VendingMachine vend = new VendingMachine();
+
+        //Act
+
+        //assert
+        assertThrows(VendingMachineException.class, () ->  vend.getItem("Chip"));
+        assertThrows(VendingMachineException.class, () ->  vend.getItem("A")); 
     }
 }

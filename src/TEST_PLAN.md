@@ -40,7 +40,7 @@ Related JUnit 5 test:assertEquals and assertThrows
 
 5. Method: getItem
 Valid case: A, B
-Invalid case: Chip, Null
+Invalid case: Chip, Null, C is empty 
 Oracle / Expected Result:
 Valid Case:I expect to be able to access item A and B because the specification of the method says that it should Gets the item occupying the slot with the given code
 Invalid case: I expect it to throw an VendingMachineException because its a specification of the method where if the code is invalid, it throws 
