@@ -17,11 +17,11 @@ Invalid case: I expect it to return a VendingMachineException because its a spec
 Related JUnit 5 test: assertEquals and assertThrows
 
 3. Method: insertMoney
-Valid case: 1, 10.30, 0
+Valid case: 1, 10.30, 
 Invalid case: -10.24, -1
 Boundary case: 1, 0.5, 0.001, 0, -0.001, -0.5, -1
 Oracle / Expected Result:
-Valid case: I expect my balance, of Zero to begin with, to be 1 or 10.30 because that is what is specify The Javadocs. But i expect the 0 to Throws a VendingMachineException because its told to us in the javadocs
+Valid case: I expect my balance, of Zero to begin with, to be 11.30 because that is what is specify The Javadocs.
 Invalid case: I expect it to throw a VendingMachineException because its an condition of an if statement in the method
 Boundary Case: I expect for 0-1 to be inserted into the balance because its a specification of the method and i expect the -0.001 --- -1 to throw an 
 VendingMachineException because its specify in the Javadocs that amounts lower than 0 so throw VendingMachineException
