@@ -52,6 +52,7 @@ Honestly, I saw this error when i was studying the code to be able to understand
 			throw new VendingMachineException(SLOT_MESSAGE + code + IS_EMPTY_MESSAGE);
 		}
 
+
 INJECTED FAULT documentation
 •	The fault you introduced
 In removeItem, instead of if (item == null) , i changed it to if (item != null) 
@@ -67,4 +68,5 @@ VendingMachineException: Slot A is empty -- cannot remove item
         at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
 •	A short explanation of why the test detected the fault
 The test was able to detect the fault because it already had an input for it. It would always be detected if that if statement is there. 
+
 

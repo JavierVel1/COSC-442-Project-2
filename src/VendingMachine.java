@@ -141,12 +141,12 @@ public class VendingMachine {
 	 * @throws VendingMachineException If the slot at the specified code is empty
 	 *                                 and if the code is invalid
 	 */
-	// INJECTED FAULT FOR TEST VALIDATION
+
 	public VendingMachineItem removeItem(String code) throws VendingMachineException {
 		int slotIndex = getSlotIndex(code);
 		VendingMachineItem item = itemArray[slotIndex];
 		itemArray[slotIndex] = null;
-		if (item != null) {
+		if (item == null) {
 			throw new VendingMachineException(SLOT_MESSAGE + code + IS_EMPTY_MESSAGE);
 		}
 		return item;

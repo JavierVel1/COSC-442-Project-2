@@ -119,11 +119,11 @@ public class VendingMachineTest {
         vend.removeItem("B");
         vend.removeItem("C");
         //Assert
-        assertNull(vend.getItem("A"));
-        assertNull(vend.getItem("B"));
-        assertNull(vend.getItem("C"));
-
+        assertThrows(VendingMachineException.class, () ->  vend.getItem("A"));
+        assertThrows(VendingMachineException.class, () ->  vend.getItem("B"));
+        assertThrows(VendingMachineException.class, () ->  vend.getItem("C"));
     }
+    
     @Test
      void testRemoveItemInvalidCase() {
         // Arrange
