@@ -52,5 +52,19 @@ Honestly, I saw this error when i was studying the code to be able to understand
 			throw new VendingMachineException(SLOT_MESSAGE + code + IS_EMPTY_MESSAGE);
 		}
 
- INJECTED FAULT documentation
- 
+INJECTED FAULT documentation
+•	The fault you introduced
+In removeItem, instead of if (item == null) , i changed it to if (item != null) 
+•	The test or tests that failed
+void testRemoveItemValidCase()
+vend.removeItem("A") this line failed
+•	The relevant JUnit failure message
+VendingMachineException: Slot A is empty -- cannot remove item
+        at VendingMachine.removeItem(VendingMachine.java:150)
+        at VendingMachineTest.testRemoveItemValidCase(VendingMachineTest.java:118)
+        at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+        at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+        at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+•	A short explanation of why the test detected the fault
+The test was able to detect the fault because it already had an input for it. It would always be detected if that if statement is there. 
+
